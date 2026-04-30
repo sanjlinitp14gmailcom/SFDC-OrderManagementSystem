@@ -1,0 +1,11 @@
+<template>
+    <lightning-card  variant="Narrow"  title="Hello">
+        <c-child-comp person-name={name} >
+        </c-child-comp>
+        <button 
+            onclick={showMessageFromChild}>
+            Show Message from Child
+        </button>
+        <p onmessagefromchild={handleMessageFromChild}> paragraph to check bubble</p>
+    </lightning-card>
+</template>

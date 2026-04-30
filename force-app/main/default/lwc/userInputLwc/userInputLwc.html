@@ -1,0 +1,54 @@
+<template>
+    <lightning-card title="User Input LWC">
+        <div class="slds-p-horizontal_medium">
+            <lightning-input type="text" label="Enter your name" value={name} onchange={handleNameChange}></lightning-input>
+        </div>
+        <div class="slds-p-horizontal_medium">
+            <lightning-input type="email" label="Enter your email" value={email} onchange={handleEmailChange}></lightning-input>
+        </div>
+        <div class="slds-p-horizontal_medium">
+            <lightning-input type="tel" label="Enter your phone number" value={phone} onchange={handlePhoneChange}></lightning-input>
+        </div>
+        <div class="slds-p-horizontal_medium">
+            <lightning-input-address
+                address-label="Enter your address"
+                street-label="Street"
+                city-label="City"
+                country-label="Country"
+                province-label="Province"
+                postal-code-label="PostalCode"
+                street={street}
+                city={city}
+                country={country}
+                province={province}
+                postal-code={postalCode}
+                required
+                field-level-help="Help Text for inputAddress field"
+                onchange={handleAddressChange} >
+                <!--street="121 Spear St."
+                city="San Francisco"
+                country="US"
+                province="CA"
+                postal-code="94105" -->
+            </lightning-input-address>
+        </div>
+        <div class="slds-p-horizontal_medium">
+            <lightning-combobox
+            name="gender"
+            label="Gender"
+            value={gender}
+            placeholder="Select Gender"
+            options={options}
+            onchange={handleGenderChange} ></lightning-combobox>
+        </div>
+    </lightning-card>
+    <lightning-card>
+        <div class="slds-p-horizontal_medium">
+            <p>Hello, {name}!</p>
+            <p>Email: {email}</p>
+            <p>Phone: {phone}</p>
+            <p>Gender: {gender}</p>
+            <p>Address: {formattedAddress}</p>
+        </div>
+    </lightning-card>
+</template>

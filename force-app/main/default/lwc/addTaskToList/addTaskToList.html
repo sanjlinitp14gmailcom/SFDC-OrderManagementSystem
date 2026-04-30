@@ -1,0 +1,47 @@
+<template>
+    <lightning-card variant="Narrow" title="Add Task To The List">
+        <lightning-input
+            class="slds-m-around_medium slds-p-around_medium"
+            type="text"
+            variant="standard"
+            name="taskTitle"
+            value={taskTitle}
+            label="Task Title"
+            placeholder="type here..."
+            onchange={handleNameChange}>
+        </lightning-input>
+        <lightning-combobox
+            class="slds-m-around_medium slds-p-around_medium"
+            name="priority"
+            label="Task Priority"
+            value={taskPriority}
+            placeholder="Select Task Priority"
+            options={options}
+            onchange={handlePriorityChange}>
+        </lightning-combobox>
+        <lightning-button
+            class="slds-m-around_medium slds-p-around_medium"
+            variant="brand"
+            label="Add Task"
+            onclick={handleButtonClick}>
+        </lightning-button>
+    </lightning-card>
+    
+    <lightning-card variant="Narrow" title="Task List" icon-name="standard:event">
+        <div class="slds-m-around_medium">
+            <template if:true={taskList.length}>
+                <template for:each={taskList} for:item="task" for:index="index">
+                    <div key={task.id} class="slds-p-vertical_small slds-border_bottom">
+                        <strong>Task Title:</strong> {task.taskTitle}<br/>
+                        <strong>Task Priority:</strong> {task.taskPriority}
+                    </div>
+                </template>
+            </template>
+            <template if:false={taskList.length}>
+                <div class="slds-text-color_weak slds-p-vertical_medium">
+                    No tasks added yet. Add a task using the form above.
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

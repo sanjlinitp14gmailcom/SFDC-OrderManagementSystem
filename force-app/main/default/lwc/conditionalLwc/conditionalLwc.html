@@ -1,0 +1,19 @@
+<template>
+    <lightning-card title="Condition LWC"> 
+        <div class="slds-m-around_medium">
+            <template lwc:if={button1Clicked}>
+                <p>{button1Msg}</p>
+            </template>
+            <template lwc:elseif={button2Clicked}>
+                <p>{button2Msg}</p>
+            </template>
+            <template lwc:else>
+                <p>{defaultMsg}</p>
+            </template>
+            <lightning-button label="Button1" onclick={handleButton1Click}>
+                </lightning-button>
+            <lightning-button label="Button2" onclick={handleButton2Click}>
+                </lightning-button>
+        </div>
+    </lightning-card>
+</template>

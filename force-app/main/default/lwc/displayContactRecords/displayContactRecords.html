@@ -1,0 +1,12 @@
+<template>
+    <lightning-card  variant="Narrow"  title="Contact Records">
+        <template if:true={contacts.records} for:each={contacts.records} for:item="contact" for:index="index">
+            <div key={contact.Id}>
+                <c-display-contact-record-tile 
+                    con-record={contact} 
+                    oncontactselected={handleContactSelected}>
+                </c-display-contact-record-tile>
+            </div>
+        </template>
+    </lightning-card>
+</template>

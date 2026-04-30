@@ -1,0 +1,78 @@
+<template>
+    <lightning-card title="Contact Form" class="slds-m-around-small slds-p-around_small">
+        <lightning-input 
+            class="slds-m-around-small slds-p-around_small"
+            type="text" 
+            variant="standard" 
+            name="firstName" 
+            label="First Name: " 
+            value={firstName}
+            onchange={handleFirstNameChange}>
+        </lightning-input>
+        <lightning-input 
+            class="slds-m-around-small slds-p-around_small"
+            type="text" 
+            variant="standard" 
+            name="lastName" 
+            label="Last Name: " 
+            value={lastName}
+            onchange={handleLastNameChange}>
+        </lightning-input>
+        <lightning-input 
+            class="slds-m-around-small slds-p-around_small"
+            type="email" 
+            variant="standard" 
+            name="email" 
+            label="Email: " 
+            value={email}
+            onchange={handleEmailChange}>
+        </lightning-input>
+        <lightning-input 
+            class="slds-m-around-small slds-p-around_small"
+            type="tel" 
+            variant="standard" 
+            name="phone" 
+            label="Phone: " 
+            value={phone}
+            onchange={handlePhoneChange}>
+        </lightning-input>
+        <lightning-input 
+            class="slds-m-around-small slds-p-around_small"
+            type="text" 
+            variant="standard" 
+            name="title" 
+            label="Title: " 
+            value={title}
+            onchange={handleTitleChange}>
+        </lightning-input>
+        <lightning-input 
+            class="slds-m-around-small slds-p-around_small"
+            type="text" 
+            variant="standard" 
+            name="department" 
+            label="Department: " 
+            value={department}
+            onchange={handleDepartmentChange}>
+        </lightning-input>
+        <lightning-button 
+            variant="brand" 
+            type="submit"
+            label="Create Contact" 
+            onclick={handleButtonClick}>
+        </lightning-button>
+
+        <template if:true={contactList.length} for:each={contactList} for:item="con" for:index="index">
+            <div key={con.id}>
+                <strong>First Name: {con.firstName}</strong> <br/>
+                <strong>Last Name: {con.lastName}</strong> <br/>
+                <strong>Email: {con.email}</strong> <br/>
+                <strong>Phone: {con.phone}</strong> <br/>
+                <strong>Title: {con.title}</strong> <br/>
+                <strong>Department: {con.department}</strong> <br/>
+            </div>
+        </template>
+        <template if:false={contactList.length}>
+            <div>No contacts added yet... Fill above form to create contact!!!</div>
+        </template>
+    </lightning-card>
+</template>

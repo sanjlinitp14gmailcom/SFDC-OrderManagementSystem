@@ -1,0 +1,17 @@
+<template>
+    <div class="slds-p-around_xx-small slds-m-around_xx-small">
+        First Name: {conRecord.FirstName} <br>
+        Last Name: {conRecord.LastName} <br>
+        Title: {conRecord.Title} <br>
+        Email: {conRecord.Email} <br>
+        Phone: {conRecord.Phone} <br>
+        Picture: <img src={conRecord.Picture__c} alt="Contact Picture" width="100" height="100"/> <br>
+        <lightning-button
+            data-contact-record-id={conRecord.Id}
+            variant="success" 
+            label="Click to fire event" 
+            onclick={handleClick}>
+        </lightning-button>
+        <hr>
+    </div>
+</template>
